@@ -7,8 +7,13 @@
         $password = md5(addslashes($_POST['password']));
         $type = addslashes($_POST['type']);
 
-        $sql = "INSERT INTO users SET name = '$name', email = '$email', password = '$password', type = '$type'";
-        $pdo->query($sql);
+        $sql = "INSERT INTO users SET name = :name, email = :email, password = :password, type = :type";
+        $sql = $pdo->prepare($sql);
+        $sql->bindValue(':name', $name);
+        $sql->bindValue(':email', $email);
+        $sql->bindValue(':password', $password);
+        $sql->bindValue(':type', $type);
+        $sql->execute();
 
         header("Location: ../admin.php");
     }

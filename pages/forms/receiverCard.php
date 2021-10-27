@@ -32,8 +32,17 @@ if(isset($_POST['title']) && !empty($_POST['title'])){
        <a href='formCards.php'>Voltar</a><br>";
     }
     else{
-        $sql = "INSERT INTO cards SET number_card = '$number_card', title = '$title', description = '$description', file = '$img', frequency = '$frequency'";
-        $pdo->query($sql);
+        $sql = "INSERT INTO cards SET number_card = :number_card, title =:title, description = :description, file = :img, frequency = :frequency";
+        $sql=$pdo->prepare($sql);
+        $sql->bindValue(':number_card', $number_card);
+        $sql->bindValue(':title', $title);
+        $sql->bindValue(':description', $description);
+        $sql->bindValue(':img', $img);
+        $sql->bindValue(':frequency', $frequency);
+        $sql->execute();
+        echo "<script>alert('Cartão cadastrado com sucesso!')</script>
+        <a href='formCards.php'>Voltar</a><br>";
+
     }
 }
 
