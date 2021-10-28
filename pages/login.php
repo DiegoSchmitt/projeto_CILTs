@@ -2,7 +2,7 @@
 session_start();
 require '../config/config.php';
 
-if(isset($_POST['email']) && empty($_POST['email']) == false){
+if(isset($_POST['email']) && !empty($_POST['email'])){
     $email = addslashes($_POST['email']);
     $password = md5(addslashes($_POST['password']));
 
@@ -23,4 +23,5 @@ if(isset($_POST['email']) && empty($_POST['email']) == false){
     Senha:<br/>
     <input type="password" name="password"><br/>
     <input type="submit" value="Entrar">
+    <a href="forms/formNewPassword.php">Alterar a senha</a>
 </form>
