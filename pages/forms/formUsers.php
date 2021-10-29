@@ -7,15 +7,21 @@
         $password = md5(addslashes($_POST['password']));
         $type = addslashes($_POST['type']);
 
-        $sql = "INSERT INTO users SET name = :name, email = :email, password = :password, type = :type";
-        $sql = $pdo->prepare($sql);
-        $sql->bindValue(':name', $name);
-        $sql->bindValue(':email', $email);
-        $sql->bindValue(':password', $password);
-        $sql->bindValue(':type', $type);
-        $sql->execute();
-
-        header("Location: ../admin.php");
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $sql = $pdo->query($sql);
+        if($sql->rowCount() > 0){
+            echo "<script>alert('Já existe uma conta com esse e-mail!')</script>";
+        }
+        else{
+            $sql = "INSERT INTO users SET name = :name, email = :email, password = :password, type = :type";
+            $sql = $pdo->prepare($sql);
+            $sql->bindValue(':name', $name);
+            $sql->bindValue(':email', $email);
+            $sql->bindValue(':password', $password);
+            $sql->bindValue(':type', $type);
+            $sql->execute();
+            echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
+        }
     }
 ?>
 <form method = "POST">
@@ -32,4 +38,5 @@
         <option value="1">Administrador</option>
     </select> <br/>
     <input type="submit" value="Cadastrar"/>
+    <a href="../admin.php">Voltar</a>
 </form>
