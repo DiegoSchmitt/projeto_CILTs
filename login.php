@@ -1,7 +1,5 @@
 <?php
-session_start();
-require '../config/config.php';
-
+    require 'pages/header.php';
 if(isset($_POST['email']) && !empty($_POST['email'])){
     $email = addslashes($_POST['email']);
     $password = md5(addslashes($_POST['password']));
@@ -13,15 +11,19 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
             $_SESSION['id'] = $data['id'];
             $_SESSION['name'] = $data['name'];
             $_SESSION['type'] = $data['type'];
-            header("Location: ../receiver.php");
+            header("Location:receiver.php");
         }
 } 
 ?>
-<form action="" method="post">
-    E-mail:<br/>
-    <input type="email" name="email"><br/>
-    Senha:<br/>
-    <input type="password" name="password"><br/>
-    <input type="submit" value="Entrar">
-    <a href="forms/formNewPassword.php">Alterar a senha</a>
+<form method="post">
+    <h3>Faça o login</h3>
+    <input type="email" name="email"  placeholder="Seu e-mail..."><br/>
+    <input type="password" name="password"  placeholder="Sua senha..."><br/>
+    <input type="submit" value="Entrar"><br/><br/>
+    <a  href="formNewPassword.php" id="alterar">Alterar a senha</a>
+    <a href="index.php" id="voltar">Voltar</a>
 </form>
+
+<?php
+    require 'pages/footer.php';
+?>

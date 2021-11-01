@@ -1,20 +1,17 @@
+<?php
+    require 'pages/header.php';
+?>
 <form method="post">
-    E-mail:<br/>
-    <input type="email" name="email"/><br/>
-    Senha:<br/>
-    <input type="password" name="password"/><br/>
-    Nova Senha:<br/>
-    <input type="password" name="new_password"/><br/>
-    Confirme nova senha:<br/>
-    <input type="password" name="confirm_password"/><br/>
-    <input type="submit" value="Alterar Senha"/><br/>
-    <a href="../login.php">Voltar</a>
+    <h3>Alterar Senha</h3>
+    <input type="email" name="email" placeholder="Seu e-mail..."/><br/>
+    <input type="password" name="password" placeholder="Sua senha atual..."/><br/>
+    <input type="password" name="new_password" placeholder="Sua nova senha..."/><br/>
+    <input type="password" name="confirm_password" placeholder="Confirme sua nova senha..."/><br/>
+    <input type="submit" value="Alterar Senha"/><br/><br/>
+    <a href="login.php">Voltar</a>
 </form>
 
 <?php
-session_start();
-require 'C:\xampp\htdocs\Projeto CILTs\config\config.php';
-
 if(isset($_POST['email']) && !empty($_POST['email'])){
     $email = addslashes($_POST['email']);
     $password = md5(addslashes($_POST['password']));
@@ -41,4 +38,5 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
         }
 }
 
+require 'pages/footer.php';
 ?>

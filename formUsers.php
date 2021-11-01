@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    require 'C:\xampp\htdocs\Projeto CILTs\config\config.php';
+    require 'pages/header.php';
     if(isset($_POST['name']) && !empty($_POST['name'])){
         $name = addslashes($_POST['name']);
         $email = addslashes($_POST['email']);
@@ -25,18 +24,18 @@
     }
 ?>
 <form method = "POST">
-    Nome:<br/>
-    <input type="text" name="name"/><br/>
-    Email:<br/>
-    <input type="text" name="email"/><br/>
-    Senha Provisória:<br/>
-    <input type="password" name="password"/><br/>
-    Usuário ou administrador? <br/>
+    <input type="text" name="name" placeholder="Nome..."/><br/>
+    <input type="text" name="email" placeholder="E-mail..."/><br/>
+    <input type="password" name="password" placeholder="Senha provisória..."/><br/>
+    Selecione o nível hierarquico, Usuário ou Administrador:  
     <select name="type">
         <option></option>
         <option value="0">Usuário</option>
         <option value="1">Administrador</option>
     </select> <br/>
-    <input type="submit" value="Cadastrar"/>
-    <a href="../admin.php">Voltar</a>
+    <input type="submit" value="Cadastrar"/><br/><br/>
+    <a href="admin.php">Voltar</a>
 </form>
+<?php
+    require 'pages/footer.php';
+?>

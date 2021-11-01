@@ -4,13 +4,13 @@
 Mesmo não já existindo o numero da cartão, não salvando no bd, a imagem é salva na pasta img*/
 
 session_start();
-require 'C:\xampp\htdocs\Projeto CILTs\config\config.php';
+require 'config.php';
 
 $file = $_FILES['file'];
 
 if(isset($file['tmp_name']) && !empty($file['tmp_name'])){
     $filename = md5(time().rand(0,99)).'.png';
-    move_uploaded_file($file['tmp_name'], 'C:\xampp\htdocs\Projeto CILTs\assets\img\cards'.$filename);
+    move_uploaded_file($file['tmp_name'], 'assets\img\cards'.$filename);
 }
 
 if(isset($_POST['title']) && !empty($_POST['title'])){

@@ -1,4 +1,7 @@
 <?php
-    session_start();
+    require "pages/header.php";
 ?>
-<a href="pages/login.php">Login</a>
+<a href="login.php">Login</a>
+<?php
+    require "pages/footer.php";
+?>
