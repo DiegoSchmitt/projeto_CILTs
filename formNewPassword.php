@@ -3,10 +3,22 @@
 ?>
 <form method="post">
     <h3>Alterar Senha</h3>
-    <input type="email" name="email" placeholder="Seu e-mail..."/><br/>
-    <input type="password" name="password" placeholder="Sua senha atual..."/><br/>
-    <input type="password" name="new_password" placeholder="Sua nova senha..."/><br/>
-    <input type="password" name="confirm_password" placeholder="Confirme sua nova senha..."/><br/>
+    <div class="input-container">
+        <label for="email"><i class="fas fa-envelope"></i></label>
+        <input type="email" name="email" id="email" placeholder="Seu e-mail..."/><br/>
+    </div>
+    <div class="input-container">
+        <label for="password"><i class="fas fa-lock"></i></label>
+        <input type="password" name="password" id="password" placeholder="Sua senha atual..."/><br/>
+    </div>
+    <div class="input-container">
+        <label for="new_password"><i class="fas fa-lock"></i></label>
+        <input type="password" name="new_password" id="new_password" placeholder="Sua nova senha..."/><br/>
+    </div>
+    <div class="input-container">
+        <label for="confirm_password"><i class="fas fa-lock"></i></label>
+        <input type="password" name="confirm_password" id="corfirm_password" placeholder="Confirme sua nova senha..."/><br/>
+    </div>
     <input type="submit" value="Alterar Senha"/><br/><br/>
     <a href="login.php">Voltar</a>
 </form>

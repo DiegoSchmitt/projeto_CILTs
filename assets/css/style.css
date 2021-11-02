@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color:#5f7c8a;
+    background-color:#ffffff;
 }
 form{
     color: #4a5f6a;
@@ -16,11 +16,24 @@ form{
     left:50%;
     top:50%;
     transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px;
 }
 form h3{
     text-align: center;
     color: #5f7c8a;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.input-container{
+    position: relative;
+}
+label{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    color: #5f7c8a;
 }
 
 form input[type=email],
@@ -38,14 +51,26 @@ form select
     padding-left: 10px;
     margin: 10px 0;
     border-radius: 10px;
+    padding-left: 70px;
+}
+form textarea{
+    height: 150px;
+}
+
+
+form input[type=email]{
+    background-image:url(assets/img/icons/email.png);
+    background-position: 7px 7px;
+    background-repeat: no-repeat;
 }
 a{
     text-decoration: none;
     color: #4a5f6a;
 }
 #alterar{
-    margin-right: 50%;
+    margin-right: 65%;
 }
+
 form input[type=submit]
 {
     width: 100%;

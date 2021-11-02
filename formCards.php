@@ -3,9 +3,15 @@
 ?>
 <form method = "POST" enctype="multipart/form-data" action='receiverCard.php'>
     <h3>Cadastrar novo CILT</h3>
-    <input type="number" name="number_card" placeholder="Digite o número do Cartão"/><br/>
-    <input type="text" name="title" placeholder="Digite o título"/><br/>
-    <textarea name="description" placeholder="Descreva como a atividade deve ser executada"></textarea><br/>
+    <div class="input-container">
+        <label for="number_card"><i class="fas fa-keyboard"></i></label>
+        <input type="number" name="number_card" id="number_card" placeholder="Digite o número do Cartão"/><br/>
+    </div>
+    <div class="input-container">
+        <label for="title"><i class="fas fa-keyboard"></i></label>
+        <input type="text" name="title" id="title" placeholder="Digite o título"/><br/>
+    </div>
+    <textarea name="description" id="description" placeholder="Descreva como a atividade deve ser executada"></textarea><br/>
     Selecione a frequência da execução das atividades:
     <select name="frequency"> <br/>
         <option></option>
