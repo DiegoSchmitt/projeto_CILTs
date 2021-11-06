@@ -4,8 +4,8 @@ class Users{
     public function __construct(){
          $this->pdo = new pdo("mysql:dbname=projeto_cilts;host=localhost", "root", "");
     }
-    public function adicionar($name, $email, $password, $type){
-       if($this->existeEmail($email)==false){
+    public function add($name, $email, $password, $type){
+       if($this->existEmail($email)==false){
             $sql = "INSERT INTO users (name, email, password, type) VALUES (:name, :email, :password, :type)";
             $sql = $this->pdo->prepare($sql);
             $sql->bindValue(":name", $name);
@@ -20,7 +20,7 @@ class Users{
         }
     }
 
-    public function existeEmail($email){
+    public function existEmail($email){
         $sql = "SELECT * FROM users WHERE email = :email";
         $sql = $this->pdo->prepare($sql);
         $sql->bindValue(":email", $email);

@@ -7,10 +7,9 @@
         $email = addslashes($_POST['email']);
         $password = md5(addslashes($_POST['password']));
         $type = addslashes($_POST['type']);
-        if($user->existeEmail($email)==false){
-            $user->adicionar($name, $email, $password, $type);
+        if($user->existEmail($email)==false){
+            $user->add($name, $email, $password, $type);
             echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
-            header("Locarion: formUsers.php");
         }else{
             echo "<script>alert('Já existe um usuário com esse e-mail!')</script>";
         }
