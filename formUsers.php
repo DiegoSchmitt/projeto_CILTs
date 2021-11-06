@@ -1,25 +1,18 @@
 <?php
     require 'pages/header.php';
-    if(isset($_POST['name']) && !empty($_POST['name'])){
+    include 'users.class.php';
+    $user = new Users();
+    if(isset($_POST['email']) && !empty($_POST['email'])){
         $name = addslashes($_POST['name']);
         $email = addslashes($_POST['email']);
         $password = md5(addslashes($_POST['password']));
         $type = addslashes($_POST['type']);
-
-        $sql = "SELECT * FROM users WHERE email = '$email'";
-        $sql = $pdo->query($sql);
-        if($sql->rowCount() > 0){
-            echo "<script>alert('Já existe uma conta com esse e-mail!')</script>";
-        }
-        else{
-            $sql = "INSERT INTO users SET name = :name, email = :email, password = :password, type = :type";
-            $sql = $pdo->prepare($sql);
-            $sql->bindValue(':name', $name);
-            $sql->bindValue(':email', $email);
-            $sql->bindValue(':password', $password);
-            $sql->bindValue(':type', $type);
-            $sql->execute();
+        if($user->existeEmail($email)==false){
+            $user->adicionar($name, $email, $password, $type);
             echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
+            header("Locarion: formUsers.php");
+        }else{
+            echo "<script>alert('Já existe um usuário com esse e-mail!')</script>";
         }
     }
 ?>
