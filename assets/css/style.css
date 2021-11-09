@@ -14,8 +14,7 @@ form{
     padding: 20px;
     position:absolute;
     left:50%;
-    top:50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%);
     border-radius: 20px;
     box-shadow: 0px 0px 20px;
 }
@@ -41,6 +40,8 @@ form input[type=password],
 form input[type=text],
 form input[type=number],
 form input[type=text],
+form input[type=time],
+form input[type=date],
 form textarea,
 form select
 {
@@ -105,6 +106,16 @@ form input[type=number]:focus{
     border: 1px solid;
     box-shadow: 0px 0px 10px ;
 }
+form input[type=time]:focus{
+    outline:0;
+    border: 1px solid;
+    box-shadow: 0px 0px 10px ;
+}
+form input[type=date]:focus{
+    outline:0;
+    border: 1px solid;
+    box-shadow: 0px 0px 10px ;
+}
 form textarea:focus{
     outline:0;
     border: 1px solid;
@@ -114,4 +125,76 @@ form select:focus{
     outline:0;
     border: 1px solid;
     box-shadow: 0px 0px 10px ;
+}
+
+.card{
+    width: 500px;
+    background-color: #5f7c8a;
+    display: flex;
+    flex-direction: column;
+}
+.number-frequency{
+    width: 500px;
+    display: flex;
+    height: 50px;
+}
+.number{
+    background-color: aqua;
+    flex: 1;
+}
+.frequency{
+    background-color: brown;
+    flex: 2;
+}
+.time-type{
+    width: 500px;
+    display: flex;
+    height: 50px;
+}
+.time{
+    background-color: burlywood;
+    flex: 1;
+}
+.type{
+    background-color: chartreuse;
+    flex:2;
+}
+.title{
+    width: 500px;
+    display: flex;
+    height: 50px;
+    background-color: coral;
+}
+.img{
+    width: 500px;
+    display: flex;
+    height: 200px;
+    background-color: cornsilk;
+}
+.description{
+    width: 500px;
+    display: flex;
+    min-height: 100px;
+}
+.status-date{
+    width: 500px;
+    display: flex;
+    height: 50px;
+}
+.status{
+    flex: 1;
+    background-color: crimson;
+}
+.date{
+    flex: 1;
+    background-color: darkblue;
+}
+.time-date{
+    width: 500px;
+    display: flex;
+    height: 50px;
+}
+.last-date{
+    flex: 1;
+    background-color: yellow;
 }
