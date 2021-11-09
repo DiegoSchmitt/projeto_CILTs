@@ -17,7 +17,7 @@ if(isset($_POST['title']) && !empty($_POST['title'])){
     $time_expected = addslashes($_POST['time_expected']);
     $frequency = addslashes($_POST['frequency']);
     $img = $filename;
-    $status = 1;
+    $status = 0;
     $date = addslashes($_POST['date']);
     if($card->existNumberCard($number_card)==false){
         $card->add($type_card, $number_card, $title, $description, $time_expected, $img, $frequency, $status, $date);

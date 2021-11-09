@@ -3,7 +3,13 @@
     include 'cards.class.php';
 
     $card = new Cards();
-    $info = $card->getNumberCard($_POST['card']);
+    if(!empty($_POST['number_card'])){
+        $info = $card->getNumberCard($_POST['number_card']);
+    }if(!empty($_POST['type_card'])){
+        $info = $card->getType($_POST['type_card']);
+    }if(!empty($_POST['status_card'])){
+        $info = $card->getStatus($_POST['status_card']);
+    }
     $type_card = $info['type_card'];
     $status = $info['status']; 
     switch($type_card){
@@ -21,14 +27,13 @@
         break;
     }
     switch($status){
-        case 1:
+        case 0:
             $status = 'Em dia';
             break;
-        case 2:
+        case 1:
             $status = 'Atrasado';
             break;
     }
-
 ?>
 <div class=container>
     <div class='card'>

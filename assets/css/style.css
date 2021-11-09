@@ -54,6 +54,9 @@ form select
     border-radius: 10px;
     padding-left: 70px;
 }
+form input[type=checkbox]{
+    padding-left: 10px;
+}
 form textarea{
     height: 150px;
 }
@@ -129,72 +132,103 @@ form select:focus{
 
 .card{
     width: 500px;
-    background-color: #5f7c8a;
     display: flex;
     flex-direction: column;
+    border: 1px solid #4a5f6a;
+    text-align: center;
+}
+.title{
+    padding-top: 10px;
+    width: 500px;
+    height: 50px;
+    background-color:#ffffff;
+    color: #4a5f6a;
+    border: 1px solid #4a5f6a;
 }
 .number-frequency{
     width: 500px;
     display: flex;
     height: 50px;
+    background-color:#ffffff;
+    color: #4a5f6a;
+
 }
 .number{
-    background-color: aqua;
     flex: 1;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
 .frequency{
-    background-color: brown;
     flex: 2;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
 .time-type{
+    background-color:#ffffff;
+    color: #4a5f6a;
     width: 500px;
     display: flex;
     height: 50px;
 }
 .time{
-    background-color: burlywood;
     flex: 1;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
 .type{
-    background-color: chartreuse;
-    flex:2;
+    flex:1;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
-.title{
-    width: 500px;
-    display: flex;
-    height: 50px;
-    background-color: coral;
-}
+
 .img{
     width: 500px;
     display: flex;
     height: 200px;
-    background-color: cornsilk;
+    background-color:#ffffff;
+    color: #4a5f6a;
+    border: 1px solid #4a5f6a;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .description{
     width: 500px;
     display: flex;
     min-height: 100px;
+    background-color:#ffffff;
+    color: #4a5f6a;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .status-date{
     width: 500px;
     display: flex;
     height: 50px;
+    background-color:#ffffff;
+    color: #4a5f6a;
 }
 .status{
     flex: 1;
-    background-color: crimson;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
 .date{
     flex: 1;
-    background-color: darkblue;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }
 .time-date{
     width: 500px;
     display: flex;
     height: 50px;
+    background-color:#ffffff;
+    color: #4a5f6a;
 }
 .last-date{
     flex: 1;
-    background-color: yellow;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
 }

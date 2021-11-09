@@ -49,6 +49,33 @@ class Cards{
             return array();
         }
     }
+    public function getType($type_card){
+        $sql = "SELECT * FROM cards WHERE type_card = :type_card";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':type_card', $type_card);
+        $sql->execute();
+
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getStatus($status){
+        $sql = "SELECT * FROM cards WHERE status = :status";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':status', $status);
+        $sql->execute();
+
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
 
     public function getAll(){
         $sql = "SELECT * FROM cards";
