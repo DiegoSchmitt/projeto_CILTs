@@ -29,13 +29,13 @@
     Selecione a frequência da execução das atividades:
     <select name="frequency"> <br/>
         <option></option>
-        <option>Diário</option>
-        <option>Semanal</option>
-        <option>Quinzenal</option>
-        <option>Mensal</option>
-        <option>Trimestral</option>
-        <option>Semestral</option>
-        <option>Anual</option>
+        <option value='1'>Diário</option>
+        <option value='7'>Semanal</option>
+        <option value='15'>Quinzenal</option>
+        <option value='30'>Mensal</option>
+        <option value='90'>Trimestral</option>
+        <option value='180'>Semestral</option>
+        <option value='360'>Anual</option>
     </select> <br/>
 
     <div class="input-container">

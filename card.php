@@ -12,6 +12,8 @@
     }
     $type_card = $info['type_card'];
     $status = $info['status']; 
+    $frequency = $info['frequency'];
+
     switch($type_card){
         case 1:
             $type_card = 'Limpeza';
@@ -34,13 +36,36 @@
             $status = 'Atrasado';
             break;
     }
+    switch($frequency){
+        case 1:
+            $frequency = 'Diário';
+            break;
+        case 7:
+            $frequency = 'Semanal';
+            break;
+        case 15:
+            $frequency = 'Quinzenal';
+            break;
+        case 30:
+            $frequency = 'Mensal';
+            break;
+        case 90:
+            $frequency = 'Trimestral';
+            break;
+        case 180:
+            $frequency = 'Semestral';
+            break;
+        case 360:
+            $frequency = 'Anual';
+            break;
+    }
 ?>
 <div class=container>
     <div class='card'>
         <div class="title">Titulo:<?php echo $info['title'];?></div>
         <div class="number-frequency" >
             <div class="number">Numero:<?php echo $info['number_card'];?></div>
-            <div class=frequency>Frequência: <?php echo $info['frequency'];?></div>
+            <div class=frequency>Frequência: <?php echo $frequency;?></div>
         </div>
         <div>
             <div class="time-type">
@@ -55,8 +80,8 @@
             <div class="date">Data da Criação:<?php echo $info['date'];?></div>
         </div>
         <div class="time-date">
-            <div class="time">Tempo da última execução:<?php echo $info['time_expected'];?></div>
-            <div class="last-date">Data da última execução:<?php echo $info['date'];?></div>
+            <div class="time">Tempo da última execução:</div>
+            <div class="last-date">Data da última execução:</div>
         </div>
     </div>
 </div>
