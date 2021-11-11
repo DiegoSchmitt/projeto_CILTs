@@ -87,16 +87,28 @@ class Cards{
             return array();
         }
     }
-    public function alterStatus($date, $frequency){
-        $date = strtotime($date);
+    public function alterStatus($execution_date, $frequency){
+        $execution_date = strtotime($execution_date);
         $current_date = time();
         $frequency = $frequency * 86400; 
-        $limit_date = ($date + $frequency);
+        $limit_date = ($execution_date + $frequency);
       if($current_date > $limit_date){
             $sql = "UPDATE cards (status) VALUE ('1')";
             $sql=$this->pdo->prepare($sql);
             $sql->execute();
             return true;
         }
+    }
+
+    public function executeCard($number_card, $execution_date, $execution_time, $comment, $name){
+        $sql = "UPDATE cards SET execution_date = :execution_date, execution_time = :execution_time, 
+        comment = :comment, name = :name WHERE number_card = :number_card";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':number_card', $number_card);
+        $sql->bindValue(':execution_date', $execution_date);
+        $sql->bindValue(':execution_time', $execution_time);
+        $sql->bindValue(':comment', $comment);
+        $sql->bindValue(':name', $name);        
+        $sql->execute();
     }
 }
