@@ -232,3 +232,17 @@ form select:focus{
     border: 1px solid #4a5f6a;
     padding-top: 10px;
 }
+.name{
+    flex: 1;
+    height: 50px;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
+    color: #4a5f6a;
+}
+.comment{
+    flex: 1;
+    border: 1px solid #4a5f6a;
+    padding-top: 10px;
+    min-height: 100px;
+    color: #4a5f6a;
+}

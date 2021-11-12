@@ -83,5 +83,7 @@
             <div class="time">Tempo da última execução:<?php echo $info['execution_time'];?></div>
             <div class="last-date">Data da última execução:<?php echo $info['execution_date'];?></div>
         </div>
+        <div class="name">Autor da ultima execução:<?php echo $info['name'];?> </div>
+        <div class="comment">Comentário:<?php echo $info['comment'];?> </div>
     </div>
 </div>
