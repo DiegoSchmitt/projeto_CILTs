@@ -80,8 +80,8 @@
             <div class="date">Data da Criação:<?php echo $info['date'];?></div>
         </div>
         <div class="time-date">
-            <div class="time">Tempo da última execução:</div>
-            <div class="last-date">Data da última execução:</div>
+            <div class="time">Tempo da última execução:<?php echo $info['execution_time'];?></div>
+            <div class="last-date">Data da última execução:<?php echo $info['execution_date'];?></div>
         </div>
     </div>
 </div>

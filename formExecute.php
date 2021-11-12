@@ -4,12 +4,15 @@
     $card = new Cards();
     $list = $card->getAll();
     if(isset($_POST['number_card']) && !empty($_POST['number_card'])){
+        $info = $card->getNumberCard($_POST['number_card']);
+        $frequency = $info['frequency'];
         $number_card = addslashes($_POST['number_card']);
         $execution_date = addslashes($_POST['execution_date']);
         $execution_time = addslashes($_POST['execution_time']);
         $comment = addslashes($_POST['comment']);
         $name = addslashes($_POST['name']);
         $card->executeCard($number_card, $execution_date, $execution_time, $comment, $name);
+        $card->alterStatus($execution_date, $frequency, $number_card);
     }
 ?>
 <form method="post">
