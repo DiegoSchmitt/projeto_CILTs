@@ -55,7 +55,7 @@
         case 360:
             $frequency = 'Anual';
             break;
-        }   
+        }
 ?>
 <div class=container>
     <div class='card'>

@@ -195,17 +195,14 @@ form select:focus{
 }
 
 .img{
+    display: flex;
     width: 500px;
     display: flex;
-    height: 200px;
     background-color:#ffffff;
     color: #4a5f6a;
     border: 1px solid #4a5f6a;
-    padding-left: 20%;
-    padding-right: 20%;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
+
 .description{
     width: 500px;
     display: flex;
