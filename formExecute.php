@@ -15,6 +15,7 @@
         $card->alterStatus($execution_date, $frequency, $number_card);
     }
 ?>
+<div class="container">
 <form method="post">
     Selecione o número do CILT: 
     <select name="number_card" id="number_card">
@@ -46,4 +47,6 @@
     <div class="input-container">
         <input type="submit" value="Enviar">
     </div>
+    <a href="users.php">Voltar</a>
 </form>
+</div>

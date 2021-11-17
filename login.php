@@ -1,5 +1,4 @@
 <?php
-    require 'pages/header.php';
 if(isset($_POST['email']) && !empty($_POST['email'])){
     $email = addslashes($_POST['email']);
     $password = md5(addslashes($_POST['password']));
@@ -12,9 +11,24 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
             $_SESSION['name'] = $data['name'];
             $_SESSION['type'] = $data['type'];
             header("Location:receiver.php");
+        }else{?>
+<div class="container">
+    <div class="danger">
+        <div class="msg">
+            <?php
+                echo"Email e/ou senha inválido!";
+            ?>
+        </div>
+        <div class="close">
+            <a href="index.php">x</a>
+        </div>
+    </div>
+</div>
+        <?php
         }
 } 
 ?>
+<div class="container">
 <form method="post">
     <h3>Faça o login</h3>
     <div class="input-container">
@@ -26,10 +40,6 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
         <input type="password" name="password" id="password" placeholder="Sua senha..."/><br/>
     </div>
     <input type="submit" value="Entrar"><br/><br/>
-    <a  href="formNewPassword.php" id="alterar">Alterar a senha</a>
-    <a href="index.php" id="voltar">Voltar</a>
+    <a href="formNewPassword.php">Alterar a senha</a>
 </form>
-
-<?php
-    require 'pages/footer.php';
-?>
+</div>

@@ -1,6 +1,7 @@
 <?php
     require 'pages/header.php';
 ?>
+<div class="container">
 <form method="post">
     <h3>Alterar Senha</h3>
     <div class="input-container">
@@ -20,8 +21,9 @@
         <input type="password" name="confirm_password" id="corfirm_password" placeholder="Confirme sua nova senha..."/><br/>
     </div>
     <input type="submit" value="Alterar Senha"/><br/><br/>
-    <a href="login.php">Voltar</a>
+    <a href="index.php">Voltar</a>
 </form>
+</div>
 
 <?php
 if(isset($_POST['email']) && !empty($_POST['email'])){

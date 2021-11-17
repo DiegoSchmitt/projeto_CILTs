@@ -3,8 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    background-color:#ffffff;
+.container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }
 form{
     color: #4a5f6a;
@@ -12,14 +14,13 @@ form{
     max-width: 500px;
     width: 70%;
     padding: 20px;
-    position:absolute;
-    left:50%;
-    transform: translate(-50%);
+    margin-top: 20px;
     border-radius: 20px;
     box-shadow: 0px 0px 20px;
+    position: absolute;
+    z-index: 1;
 }
 form h3{
-    text-align: center;
     color: #5f7c8a;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -71,9 +72,6 @@ a{
     text-decoration: none;
     color: #4a5f6a;
 }
-#alterar{
-    margin-right: 65%;
-}
 
 form input[type=submit]
 {
@@ -89,54 +87,26 @@ form input[type=submit]:hover{
     background-color: #4a5f6a;
     transition: 1s;
 }
-form input[type=email]:focus{
+form input[type=email]:focus, 
+form input[type=password]:focus,
+form input[type=number]:focus,
+form input[type=text]:focus,
+form input[type=time]:focus,
+form input[type=date]:focus,
+form textarea:focus,
+form select:focus
+{
+
     outline: 0px;
     border: 1px solid;
     box-shadow: 0px 0px 10px ;
 }
-form input[type=password]:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form input[type=text]:focus{
-    outline: 0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form input[type=number]:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form input[type=time]:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form input[type=date]:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form textarea:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-form select:focus{
-    outline:0;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
-}
-
 .select{
     color: #4a5f6a;
     background-color: white;
     max-width: 500px;
     width: 70%;
     padding: 20px;
-    position: unset;
     left:0%;
     transform: translate(0%);
     border-radius: 20px;
@@ -152,14 +122,12 @@ form select:focus{
 }
 .title{
     padding-top: 10px;
-    width: 500px;
     height: 50px;
     background-color:#ffffff;
     color: #4a5f6a;
     border: 1px solid #4a5f6a;
 }
 .number-frequency{
-    width: 500px;
     display: flex;
     height: 50px;
     background-color:#ffffff;
@@ -179,7 +147,6 @@ form select:focus{
 .time-type{
     background-color:#ffffff;
     color: #4a5f6a;
-    width: 500px;
     display: flex;
     height: 50px;
 }
@@ -195,8 +162,7 @@ form select:focus{
 }
 
 .img{
-    display: flex;
-    width: 500px;
+    justify-content: center;
     display: flex;
     background-color:#ffffff;
     color: #4a5f6a;
@@ -204,7 +170,6 @@ form select:focus{
 }
 
 .description{
-    width: 500px;
     display: flex;
     min-height: 100px;
     background-color:#ffffff;
@@ -214,7 +179,6 @@ form select:focus{
     padding-bottom: 10px;
 }
 .status-date{
-    width: 500px;
     display: flex;
     height: 50px;
     background-color:#ffffff;
@@ -231,7 +195,6 @@ form select:focus{
     padding-top: 10px;
 }
 .time-date{
-    width: 500px;
     display: flex;
     height: 50px;
     background-color:#ffffff;
@@ -255,4 +218,56 @@ form select:focus{
     padding-top: 10px;
     min-height: 100px;
     color: #4a5f6a;
+}
+.danger a, .sucess a{
+    text-decoration: none;
+    color: white;
+}
+.danger, .sucess{
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    width: 400px;
+    padding: 10px;
+    justify-items: center;
+    border-radius: 10px;
+}
+.danger{
+    background-color: rgb(196, 89, 89);
+}
+.sucess{
+    background-color: rgb(59, 165, 105);
+    flex-direction: column;
+}
+
+.msg{
+    flex: 9;
+    color: white;
+}
+.close{
+    flex: 1;
+    text-decoration: none;
+    color: white;
+}
+.btn-sim, .btn-nao{
+    flex: 9;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+.btn-sim{
+    background-color: rgb(20, 99, 131);
+}
+.btn-nao{
+    background-color:rgb(196, 89, 89);
+}
+.btn-sim:hover{
+    background-color: rgb(20, 99, 255);
+}
+.btn-nao:hover{
+    background-color:rgb(233, 35, 35);
+}
+.close a:hover{
+    color: #ccc;
 }

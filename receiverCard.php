@@ -1,6 +1,8 @@
 <?php
+require "pages/header.php";
 include 'cards.class.php';
 $card = new Cards();
+
 if(isset($_POST['title']) && !empty($_POST['title'])){
     $type_card = addslashes($_POST['type_card']);    
     $number_card = addslashes($_POST['number_card']);
@@ -14,16 +16,61 @@ if(isset($_POST['title']) && !empty($_POST['title'])){
         if(isset($_FILES['file']) && !empty($_FILES['file'])){
             $file = $_FILES['file'];
 
-            if($file['error'])
-                die("Falha ao enviar arquivo");
-
-            if($file['size'] > 2097152)
-                die("Arquivo muito grande! máximo 2MB");
+            if($file['error']){
+            ?>
+            <div class="container">
+                <div class="danger">
+                    <div class="msg">
+                        <?php
+                            echo"Falha ao enviar, tente novamente!";
+                        ?>
+                    </div>
+                    <div class="close">
+                        <a href="formCards.php">x</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            exit;
+            }
+            if($file['size'] > 2097152){
+            ?>
+            <div class="container">
+                <div class="danger">
+                    <div class="msg">
+                        <?php
+                            echo"Arquivo muito grande! Tamanho máximo permitido 2MB";
+                        ?>
+                    </div>
+                    <div class="close">
+                        <a href="formCards.php">x</a>
+                    </div>
+                </div>
+            </div>
+            <?php
+            exit;
+            }
 
             $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
-            if($extension != 'jpg' && $extension !='png')
-                die('Tipo de arquivo não aceito!');
+            if($extension != 'jpg' && $extension !='png'){
+            ?>
+                <div class="container">
+                    <div class="danger">
+                        <div class="msg">
+                            <?php
+                                echo"Arquivo não permitido! Extenssões permitidas PNG ou JPEG!";
+                            ?>
+                        </div>
+                        <div class="close">
+                            <a href="formCards.php">x</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            exit;
+            }    
+
                 $new_height = 200;
                 
                 $temporary_image = imagecreatefromjpeg($_FILES['file']['tmp_name']);
@@ -41,12 +88,45 @@ if(isset($_POST['title']) && !empty($_POST['title'])){
                 $filename = md5(time().rand(0,99)).'.png';
                 
                 imagepng($resized_image, 'assets\img\cards'.$filename);
-               // move_uploaded_file($file['tmp_name'], 'assets\img\cards'.$filename);
-        }
+            }
         $card->add($type_card, $number_card, $title, $description, $time_expected, $filename, $frequency, $status, $date);
-        echo "<script>alert('Cartão cadastrado com sucesso!')</script>";
+        ?>
+        <div class="container">
+        <div class="sucess">
+           <div class="msg">
+               <?php
+                   echo"CILT cadastrado com sucesso!<br/> Deseja cadastrar outro CILT?";
+               ?>
+           </div>
+       <a href="formCards.php">
+       <div class="btn-sim" name="btn-sim">
+           Sim
+       </div>
+       </a>
+
+       <a href="admin.php">
+       <div class="btn-nao" name="btn-nao">
+           Não
+       </div>
+       </a>
+   </div>
+</div>
+<?php
     }else{
-        echo "<script>alert('Já existe um cartão com esse numero!')</script>";
+        ?>
+        <div class="container">
+            <div class="danger">
+               <div class="msg">
+                   <?php
+                       echo"Já existe um CILT cadastrado com esse número!";
+                   ?>
+               </div>
+           <div class="close">
+               <a href="formCards.php">x</a>
+           </div>
+       </div>
+   </div>
+   <?php
     }
 }
 ?>

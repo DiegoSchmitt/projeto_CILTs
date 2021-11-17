@@ -9,12 +9,48 @@
         $type = addslashes($_POST['type']);
         if($user->existEmail($email)==false){
             $user->add($name, $email, $password, $type);
-            echo "<script>alert('Usuário cadastrado com sucesso!')</script>";
-        }else{
-            echo "<script>alert('Já existe um usuário com esse e-mail!')</script>";
+            ?>
+             <div class="container">
+                 <div class="sucess">
+                    <div class="msg">
+                        <?php
+                            echo"Usuário cadastrado com sucesso!<br/> Deseja cadastrar outro usuário?";
+                        ?>
+                    </div>
+                <a href="formUsers.php">
+                <div class="btn-sim" name="btn-sim">
+                    Sim
+                </div>
+                </a>
+
+                <a href="admin.php">
+                <div class="btn-nao" name="btn-nao">
+                    Não
+                </div>
+                </a>
+            </div>
+        </div>
+        <?php
+        }
+        else{
+            ?>
+             <div class="container">
+                 <div class="danger">
+                    <div class="msg">
+                        <?php
+                            echo"Já existe um usuário cadastrado com esse e-mail!";
+                        ?>
+                    </div>
+                <div class="close">
+                    <a href="formUsers.php">x</a>
+                </div>
+            </div>
+        </div>
+        <?php
         }
     }
 ?>
+<div class="container">
 <form method = "POST">
     <h3>Cadastrar Novo Usuário</h3>
     <div class="input-container">
@@ -38,6 +74,7 @@
     <input type="submit" value="Cadastrar"/><br/><br/>
     <a href="admin.php">Voltar</a>
 </form>
+</div>
 <?php
     require 'pages/footer.php';
 ?>
