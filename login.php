@@ -29,7 +29,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
 } 
 ?>
 <div class="container">
-<form method="post">
+<form method="post" class="form">
     <h3>Faça o login</h3>
     <div class="input-container">
         <label for="email"><i class="fas fa-envelope"></i></label>

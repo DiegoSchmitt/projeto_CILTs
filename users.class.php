@@ -32,4 +32,16 @@ class Users{
             return false;
         }
     }
+    public function checkAdmin($type){
+        $sql = "SELECT * FROM users WHERE type = :type";
+        $sql = $this->pdo->prepare($sql);
+        $sql ->bindValue(":type", $type);
+        $sql->execute();
+        
+        if($sql->rowCount() > 0){
+            return true;
+        } else{
+            return false;
+        }
+    }
 }

@@ -13,10 +13,33 @@
         $name = addslashes($_POST['name']);
         $card->executeCard($number_card, $execution_date, $execution_time, $comment, $name);
         $card->alterStatus($execution_date, $frequency, $number_card);
+        ?>
+        <div class="container">
+                <div class="sucess">
+                    <div class="msg">
+                    <?php
+                       echo"Execução do CILT cadastrada com sucesso!<br/>
+                       Deseja cadastrar outra execução de CILT";
+                    ?>
+                    </div>
+                    <a href="formExecute.php">
+                    <div class="btn-sim" name="btn-sim">
+                        Sim
+                    </div>
+                    </a>
+
+                    <a href="users.php">
+                    <div class="btn-nao" name="btn-nao">
+                        Não
+                    </div>
+                    </a>
+                </div>
+            </div>
+<?php
     }
 ?>
 <div class="container">
-<form method="post">
+<form method="post" class="form">
     Selecione o número do CILT: 
     <select name="number_card" id="number_card">
         <option></option>
@@ -31,12 +54,12 @@
     <div class="input-container">
         <label for="execution_date"></label>
         Data de execução:
-        <input type="date" name="execution_date" id="execution_date"/><br/>
+        <input type="date" name="execution_date" id="execution_date"/>
     </div>
     <div class="input-container">
         <label for="execution_time"></label>
         Tempo de execução:
-        <input type="time" name="execution_time" id="execution_time"/><br/>
+        <input type="time" name="execution_time" id="execution_time"/>
     </div>
     <textarea name="comment" id="comment" placeholder="Comente sobre a execução da atividade"></textarea><br/>
     <div class="input-container">

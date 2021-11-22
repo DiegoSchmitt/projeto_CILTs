@@ -1,10 +1,19 @@
 <?php
     require 'pages/header.php';
     include 'cards.class.php';
+    include 'users.class.php';
 
+    $user = new Users();
     $card = new Cards();
     if(!empty($_POST['number_card'])){
         $info = $card->getNumberCard($_POST['number_card']);
+    }
+    else{
+        if($user->checkAdmin($_SESSION['type'] == 1))
+            header('Location:admin.php');
+        else{
+            header('Location:users.php');
+        }   
     }
     $type_card = $info['type_card'];
     switch($type_card){

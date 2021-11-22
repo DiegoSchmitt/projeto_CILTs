@@ -2,7 +2,7 @@
    require 'pages/header.php';
 ?>
 <div class="container">
-<form method = "POST" enctype="multipart/form-data" action='receiverCard.php'>
+<form method = "POST" enctype="multipart/form-data" action='receiverCard.php' class='form'>
     <h3>Cadastrar novo CILT</h3><br>
     Seleciona o tipo da rotina:
     <select name="type_card"> <br/>

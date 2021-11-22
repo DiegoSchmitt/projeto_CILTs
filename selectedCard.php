@@ -5,8 +5,14 @@
     $card = new Cards();
     if(!empty($_POST['type_card'])){
         $list = $card->getType($_POST['type_card']);
-    }if(!empty($_POST['status_card'])){
+    }else{
+        header('Location:users.php');
+    }
+    
+    if(!empty($_POST['status_card'])){
         $list = $card->getStatus($_POST['status_card']);
+    }else {
+        header('Location:users.php');
     }
 ?>
 <?php foreach ($list as $item):

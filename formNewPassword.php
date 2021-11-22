@@ -2,7 +2,7 @@
     require 'pages/header.php';
 ?>
 <div class="container">
-<form method="post">
+<form method="post" class="form">
     <h3>Alterar Senha</h3>
     <div class="input-container">
         <label for="email"><i class="fas fa-envelope"></i></label>

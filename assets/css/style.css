@@ -1,118 +1,298 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+}
+ 
+:root {
+    --cor-button-form: #214257;
+    --cor-button-hover: #51b3ec;
+    --cor-danger:rgb(196, 89, 89);
+    --cor-sucess:rgb(59, 165, 105);
+    --cor-btn-nao:rgb(196, 89, 89);
+    --cor-btn-sim: rgb(20, 99, 131);
+    --cor-btn-sim-hover:rgb(20, 99, 255);
+    --cor-btn-nao-hover:rgb(233, 35, 35);
+}
+
+
+body{
+    background-color: #e8e8e8;
 }
 .container{
     display: flex;
     justify-content: center;
     text-align: center;
 }
-form{
-    color: #4a5f6a;
+.form{
+    color: #214257;
     background-color: white;
     max-width: 500px;
     width: 70%;
     padding: 20px;
     margin-top: 20px;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px;
+    box-shadow: 0px 0px 10px;
     position: absolute;
-    z-index: 1;
 }
-form h3{
-    color: #5f7c8a;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.input-container{
-    position: relative;
-}
-label{
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 25px;
-    color: #5f7c8a;
-}
-
-form input[type=email],
-form input[type=password],
-form input[type=text],
-form input[type=number],
-form input[type=text],
-form input[type=time],
-form input[type=date],
-form textarea,
-form select
+.form input[type=email],
+.form input[type=password],
+.form input[type=number],
+.form input[type=text],
+.form input[type=date],
+.form input[type=time],
+.form select,
+.form textarea
 {
-    width:100%;
+    width: 430px;
     height: 45px;
     color: #5f7c8a;
-    border:1px solid #ccc;
+    border:0px solid #ccc;
     padding-left: 10px;
     margin: 10px 0;
     border-radius: 10px;
     padding-left: 70px;
 }
-form input[type=checkbox]{
-    padding-left: 10px;
+.form select,
+.form textarea{
+    border: 1px solid #ccc;
 }
-form textarea{
-    height: 150px;
-}
-
-
-form input[type=email]{
-    background-image:url(assets/img/icons/email.png);
-    background-position: 7px 7px;
-    background-repeat: no-repeat;
-}
-a{
-    text-decoration: none;
-    color: #4a5f6a;
+.form textarea{
+    height: 200px;
 }
 
-form input[type=submit]
+.form input[type=email]:focus, 
+.form input[type=password]:focus,
+.form input[type=number]:focus,
+.form input[type=text]:focus,
+.form input[type=time]:focus,
+.form input[type=date]:focus,
+.form textarea:focus,
+.form select:focus{
+    outline : 0px;
+    border: 1px solid;
+    box-shadow: 0px 0px 10px ;
+}
+
+.form input[type=submit]
 {
     width: 100%;
     height: 30px;
     cursor:pointer;
-    background-color:#5f7c8a;
+    background-color: var(--cor-button-form);
     color: white;
     border: 0px;
     border-radius: 10px;
 }
-form input[type=submit]:hover{
-    background-color: #4a5f6a;
+
+.form input[type=submit]:hover{
+    background-color: var(--cor-button-hover);
     transition: 1s;
 }
-form input[type=email]:focus, 
-form input[type=password]:focus,
-form input[type=number]:focus,
-form input[type=text]:focus,
-form input[type=time]:focus,
-form input[type=date]:focus,
-form textarea:focus,
-form select:focus
-{
-
-    outline: 0px;
-    border: 1px solid;
-    box-shadow: 0px 0px 10px ;
+.input-container{
+    position: relative;
 }
-.select{
+.input-container label{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+    color: var(--cor-button-hover)
+}
+
+a{
+    text-decoration: none;
+    color: var(--cor-button-form)
+}
+a:hover{
+    color: var(--cor-button-hover);
+}
+header{
+    display: flex;
+    background: #132835;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+}
+
+.left{
+    flex: 1;
+}
+.icon-menu{
+    flex: 1;
+    color: #51b3ec;
+    font-size: 40px;
+}
+.rigth{
+    flex: 1;
+}
+
+.left h3{
+    color: #fff;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    margin-left: 20px;
+}
+.left span{
+    color: #51b3ec;
+}
+.sair_btn{
+    padding: 5px;
+    background-color:#51b3ec;
+    text-decoration:none;
+    margin-right: 30px;
+    float: right;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 500px;
+    color:#fff;
+    transition: 0.5s;
+    transition-property: background;
+}
+
+nav{
+    height: auto;
+    font-family: arial;
+}
+
+nav .image{
+    margin-top: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    border: 2px solid #fff;
+}
+
+nav .menu h2{
+    color: #fff;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.menu a{
+    text-decoration: none;
+}
+.menu label, .menu a{
+    display: block;
+    padding: 25px 25px 25px 10px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+.menu label:hover, .menu a:hover{
+    background-color: #51b3ec;
+    transition: all .5s;
+}
+.sub-menu label{
+    display: block;
+    padding: 15px;
+    background-color: #214257;
+    font-size: 15px;
+    cursor: pointer;
+    color:#fff;
+    margin-left: 30px;
+}
+.sub-menu label:hover{
+    width: 100%;
+    transition: all .5s;
+}
+.menu ul{
+    width: 100%;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: all .2s linear; 
+}
+input[type=checkbox]{
+    display: none;
+}
+nav{
+    width: 280px;
+    margin-left:-280px;
+    transition: all .5s linear;
+    background-color:#214257;
+}
+
+nav ion-icon{
+    padding-right: 10px;
+}
+.sub-menu ul li a:hover{
+    background-color: #9cf;
+}
+#check-menu:checked ~ nav{
+    margin-left:0px;
+    transition: all .5s linear;
+}
+.menu input:checked ~ ul{
+    height: auto;
+    max-height: 300px;
+    transform: all;
+}
+.sub-menu input:checked ~ ul li{
+    height: auto;
+    transform: all;
+}
+.form-menu{
+    padding: 20px 20px 20px 50px;
+}
+
+.form-menu select{
+    width: 100px;
     color: #4a5f6a;
     background-color: white;
-    max-width: 500px;
-    width: 70%;
-    padding: 20px;
-    left:0%;
     transform: translate(0%);
     border-radius: 20px;
-    box-shadow: 0px 0px 20px;
 }
-
+.danger a, .sucess a{
+    text-decoration: none;
+    color: white;
+}
+.danger, .sucess{
+    margin-top: 10px;
+    display: flex;
+    width: 400px;
+    padding: 10px;
+    justify-items: center;
+    border-radius: 10px;
+}
+.danger{
+    background-color: var(--cor-danger);
+}
+.sucess{
+    background-color: var(--cor-sucess);
+    flex-direction: column;
+}
+.msg{
+    flex: 9;
+    color: white;
+}
+.close{
+    flex: 1;
+    text-decoration: none;
+    color: white;
+}
+.btn-sim, .btn-nao{
+    flex: 9;
+    border-radius: 5px;
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+.btn-sim{
+    background-color:var(--cor-btn-sim);
+}
+.btn-nao{
+    background-color:var(--cor-btn-nao);
+}
+.btn-sim:hover{
+    background-color: var(--cor-btn-sim-hover);
+}
+.btn-nao:hover{
+    background-color:var(--cor-btn-nao-hover);
+}
+.close a:hover{
+    color: #ccc;
+}
 .card{
     width: 500px;
     display: flex;
@@ -211,6 +391,7 @@ form select:focus
     border: 1px solid #4a5f6a;
     padding-top: 10px;
     color: #4a5f6a;
+    background-color:#ffffff;
 }
 .comment{
     flex: 1;
@@ -218,56 +399,5 @@ form select:focus
     padding-top: 10px;
     min-height: 100px;
     color: #4a5f6a;
-}
-.danger a, .sucess a{
-    text-decoration: none;
-    color: white;
-}
-.danger, .sucess{
-    z-index: 2;
-    position: absolute;
-    display: flex;
-    width: 400px;
-    padding: 10px;
-    justify-items: center;
-    border-radius: 10px;
-}
-.danger{
-    background-color: rgb(196, 89, 89);
-}
-.sucess{
-    background-color: rgb(59, 165, 105);
-    flex-direction: column;
-}
-
-.msg{
-    flex: 9;
-    color: white;
-}
-.close{
-    flex: 1;
-    text-decoration: none;
-    color: white;
-}
-.btn-sim, .btn-nao{
-    flex: 9;
-    border-radius: 5px;
-    padding: 5px;
-    text-decoration: none;
-    color: white;
-}
-.btn-sim{
-    background-color: rgb(20, 99, 131);
-}
-.btn-nao{
-    background-color:rgb(196, 89, 89);
-}
-.btn-sim:hover{
-    background-color: rgb(20, 99, 255);
-}
-.btn-nao:hover{
-    background-color:rgb(233, 35, 35);
-}
-.close a:hover{
-    color: #ccc;
+    background-color:#ffffff;
 }

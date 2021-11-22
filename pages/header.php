@@ -12,7 +12,3 @@
     <script src="https://kit.fontawesome.com/a84d4ab673.js" crossorigin="anonymous"></script>
     <title>Projeto CILT</title>
 </head>
-    <body>
-        <nav>
-
-        </nav>

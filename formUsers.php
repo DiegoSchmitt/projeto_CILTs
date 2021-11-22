@@ -51,7 +51,7 @@
     }
 ?>
 <div class="container">
-<form method = "POST">
+<form method = "POST" class="form">
     <h3>Cadastrar Novo Usuário</h3>
     <div class="input-container">
         <label for="name"><i class="fas fa-user"></i></label>
