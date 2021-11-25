@@ -23,9 +23,72 @@
             </center>
             <a href="formUsers.php"><ion-icon name="person-add"></ion-icon>Adiconar Novo Usuário</a>
             <a href="formCards.php"><ion-icon name="card"></ion-icon>Adiconar Novo CILT</a>
+
+
+        <div class="sub-menu-user">
+            <input type="checkbox" id="change-user">
+            <label for="change-user"><ion-icon name="person"></ion-icon>Alterar Dados do Usuário</label>
+            <ul id="menu-user"> 
+                <li>
+                    <div class="sub-menu">
+                        <input type="checkbox" id="user">
+                        <label for="user">Filtrar por Nome</label>
+                        <ul>
+                            <li>
+                                <form method="post" action="editUser.php" class="form-menu">
+                                    <select name="name-user">
+                                        <option></option>
+                                        <?php foreach ($usersList as $item): ?>
+                                        <option value="<?php echo $item["id"]?> ">
+                                        <?php
+                                            echo $item["name"]; 
+                                        ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <input type="submit" value="Abrir">
+                                </form>                                
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-card">
+            <input type="checkbox" id="change-card">
+            <label for="change-card"><ion-icon name="list"></ion-icon>Alterar Dados do CILT</label>
+            <ul id="menu-card"> 
+                <li>
+                    <div class="sub-menu">
+                        <input type="checkbox" id="card">
+                        <label for="card">Filtrar por Numero</label>
+                        <ul>
+                            <li>
+                                <form method="post" action="changeCard.php" class="form-menu">
+                                    <select name="name-card">
+                                    <option></option>
+                                    <?php foreach ($list as $item): ?>
+                                    <option>
+                                    <?php
+                                        echo $item["number_card"]; 
+                                    ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                    </select>
+                                    <input type="submit" value="Abrir">
+                                </form>                                
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-filter">
             <input type="checkbox" id="filter">
             <label for="filter"><ion-icon name="open"></ion-icon>Abrir CILT</label>
-            <ul>
+            <ul id="menu-open-cilt">
                 <li>
                     <div class="sub-menu">
                         <input type="checkbox" id="filter-number">
@@ -90,6 +153,7 @@
                     </div>
                 </li>
             </ul>
+        </div>
             <a href="index.php"><ion-icon name="close-circle"></ion-icon>Sair</a>
         </div>
     </nav>

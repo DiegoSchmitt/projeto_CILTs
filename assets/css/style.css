@@ -223,15 +223,16 @@ nav ion-icon{
     margin-left:0px;
     transition: all .5s linear;
 }
-.menu input:checked ~ ul{
+.sub-menu-user input:checked ~ #menu-user,
+.sub-menu-filter input:checked ~ #menu-open-cilt,
+.sub-menu input:checked ~ ul,
+.sub-menu-card input:checked ~ #menu-card
+{
     height: auto;
     max-height: 300px;
     transform: all;
 }
-.sub-menu input:checked ~ ul li{
-    height: auto;
-    transform: all;
-}
+
 .form-menu{
     padding: 20px 20px 20px 50px;
 }

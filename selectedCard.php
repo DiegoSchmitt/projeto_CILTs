@@ -11,9 +11,13 @@
     
     if(!empty($_POST['status_card'])){
         $list = $card->getStatus($_POST['status_card']);
-    }else {
-        header('Location:users.php');
     }
+    elseif($_SESSION['type'] == 0){
+        header('Location:users.php');
+      }else{
+          header('Location:admin.php');
+      }
+        
 ?>
 <?php foreach ($list as $item):
     $type_card = $item['type_card'];

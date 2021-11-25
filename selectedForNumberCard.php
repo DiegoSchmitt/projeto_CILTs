@@ -8,13 +8,12 @@
     if(!empty($_POST['number_card'])){
         $info = $card->getNumberCard($_POST['number_card']);
     }
-    else{
-        if($user->checkAdmin($_SESSION['type'] == 1))
+    elseif($_SESSION['type'] == 0){
+          header('Location:users.php');
+        }else{
             header('Location:admin.php');
-        else{
-            header('Location:users.php');
-        }   
-    }
+        }
+        
     $type_card = $info['type_card'];
     switch($type_card){
         case 1:
