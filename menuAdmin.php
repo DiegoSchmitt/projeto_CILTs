@@ -65,7 +65,7 @@
                         <label for="card">Filtrar por Numero</label>
                         <ul>
                             <li>
-                                <form method="post" action="changeCard.php" class="form-menu">
+                                <form method="post" action="editCard.php" class="form-menu">
                                     <select name="name-card">
                                     <option></option>
                                     <?php foreach ($list as $item): ?>

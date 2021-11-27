@@ -24,6 +24,23 @@ class Cards{
             return false;
         }
     }
+
+    public function edit($type_card, $number_card, $title, $description, $time_expected, $img, $frequency, $date){
+                $sql = "UPDATE cards SET type_card = :type_card, title = :title, description = :description, 
+                time_expected = :time_expected, file = :img, frequency = :frequency, date= :date WHERE number_card = :number_card ";
+                $sql = $this->pdo->prepare($sql);
+                $sql->bindValue(":type_card", $type_card);
+                $sql->bindValue(":title", $title);
+                $sql->bindValue(":description", $description);
+                $sql->bindValue(":time_expected", $time_expected);
+                $sql->bindValue(":img", $img);
+                $sql->bindValue(":frequency", $frequency);
+                $sql->bindValue(":date", $date);
+                $sql->bindValue(":number_card", $number_card);
+
+                $sql->execute();
+    }
+
     public function existNumberCard($number_card){
         $sql = "SELECT * FROM cards WHERE number_card = :number_card";
         $sql = $this->pdo->prepare($sql);

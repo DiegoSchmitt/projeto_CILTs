@@ -44,7 +44,7 @@ class Users{
         } else{
             return false;
         }
-}
+    }
 
     public function getId($id){
         $sql = "SELECT * FROM users WHERE id = :id";
