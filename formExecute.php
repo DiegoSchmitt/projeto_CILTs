@@ -1,7 +1,9 @@
 <?php
     require "pages\header.php";
     include "cards.class.php";
+    include "execute.class.php";
     $card = new Cards();
+    $execute = new Execute();
     $list = $card->getAll();
     if(isset($_POST['number_card']) && !empty($_POST['number_card'])){
         $info = $card->getNumberCard($_POST['number_card']);
@@ -13,6 +15,7 @@
         $name = addslashes($_POST['name']);
         $card->executeCard($number_card, $execution_date, $execution_time, $comment, $name);
         $card->alterStatus($execution_date, $frequency, $number_card);
+        $execute->add($name, $execution_date, $execution_time, $number_card);
         ?>
         <div class="container">
                 <div class="sucess">
@@ -39,6 +42,9 @@
     }
 ?>
 <div class="container">
+
+
+
 <form method="post" class="form">
     Selecione o número do CILT: 
     <select name="number_card" id="number_card">

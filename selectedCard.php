@@ -5,18 +5,20 @@
     $card = new Cards();
     if(!empty($_POST['type_card'])){
         $list = $card->getType($_POST['type_card']);
-    }else{
-        header('Location:users.php');
     }
+    
+    //else{
+      //  header('Location:users.php');
+    //}
     
     if(!empty($_POST['status_card'])){
         $list = $card->getStatus($_POST['status_card']);
     }
-    elseif($_SESSION['type'] == 0){
-        header('Location:users.php');
-      }else{
-          header('Location:admin.php');
-      }
+    //elseif($_SESSION['type'] == 0){
+      //  header('Location:users.php');
+      //}else{
+        //  header('Location:admin.php');
+      //}
         
 ?>
 <?php foreach ($list as $item):

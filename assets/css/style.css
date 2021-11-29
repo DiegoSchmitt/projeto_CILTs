@@ -244,6 +244,12 @@ nav ion-icon{
     transform: translate(0%);
     border-radius: 20px;
 }
+.form-menu input[type=submit]{
+    text-decoration: none;
+    background-color:#51b3ec;
+    color: #ffffff;
+    border-radius: 5px;
+}
 .danger a, .sucess a{
     text-decoration: none;
     color: white;

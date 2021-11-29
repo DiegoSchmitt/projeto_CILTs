@@ -22,9 +22,11 @@
                 <h2><?php echo $_SESSION['name']; ?></h2>
             </center>
             <a href="formExecute.php"><ion-icon name="person-add"></ion-icon>Executar CILT</a>
+            
+            <div class="sub-menu-filter">
             <input type="checkbox" id="filter">
             <label for="filter"><ion-icon name="open"></ion-icon>Abrir CILT</label>
-            <ul>
+            <ul id="menu-open-cilt">
                 <li>
                     <div class="sub-menu">
                         <input type="checkbox" id="filter-number">
@@ -89,6 +91,7 @@
                     </div>
                 </li>
             </ul>
+        </div>
             <a href="index.php"><ion-icon name="close-circle"></ion-icon>Sair</a>
         </div>
     </nav>

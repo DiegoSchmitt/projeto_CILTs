@@ -11,13 +11,14 @@ if(isset($_POST['number_card']) && !empty($_POST['number_card'])){
     $time_expected = addslashes($_POST['time_expected']);
     $frequency = addslashes($_POST['frequency']);
     $date = addslashes($_POST['date']);
-    if(isset($_FILES['file'])){
+    if(!isset($_FILES['file'])){
         $filename = $_POST['current_file'];
     }   
     else{   
         $file = $_FILES['file'];
 
         if($file['error']){
+            
         ?>
         <div class="container">
             <div class="danger">

@@ -20,7 +20,7 @@ class Users{
             $sql = $this->pdo->prepare($sql);
             $sql->bindValue(":name", $name);
             $sql->bindValue(":email", $email);
-            $sql->bindValue(":password", $password);
+            $sql->bindValue(":password", md5($password));
             $sql->bindValue(":type", $type);
             $sql->execute();
             return true;
