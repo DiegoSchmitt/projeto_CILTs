@@ -135,4 +135,73 @@ class Cards{
         $sql->bindValue(':name', $name);        
         $sql->execute();
     }
+
+    public function getDaily(){
+        $sql = "SELECT * FROM cards WHERE frequency = 1";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getWeekly(){
+        $sql = "SELECT * FROM cards WHERE frequency = 7";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getFortnightly(){
+        $sql = "SELECT * FROM cards WHERE frequency = 15";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getMonthly(){
+        $sql = "SELECT * FROM cards WHERE frequency = 30";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+
+    public function getQuarterly(){
+        $sql = "SELECT * FROM cards WHERE frequency = 90";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getSemester(){
+        $sql = "SELECT * FROM cards WHERE frequency = 180";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+
 }
