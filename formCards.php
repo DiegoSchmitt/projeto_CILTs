@@ -23,8 +23,8 @@
     <textarea name="description" id="description" placeholder="Descreva como a atividade deve ser executada"></textarea><br/>
     <div class="input-container">
         <label for="time_expected"></label>
-        Digite o tempo esperado para execução da atividade:
-        <input type="time" name="time_expected" id="time_expected"/><br/>
+        Digite o tempo esperado para execução da atividade em minutos:
+        <input type="number" name="time_expected" id="time_expected"/><br/>
     </div>
     Selecione a frequência da execução das atividades:
     <select name="frequency"> <br/>

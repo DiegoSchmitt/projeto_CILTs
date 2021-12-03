@@ -136,7 +136,7 @@ class Cards{
         $sql->execute();
     }
 
-    public function getDaily(){
+    public function getDayly(){
         $sql = "SELECT * FROM cards WHERE frequency = 1";
         $sql = $this->pdo->query($sql);
         if($sql -> rowCount() > 0){

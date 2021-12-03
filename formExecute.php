@@ -64,8 +64,8 @@
     </div>
     <div class="input-container">
         <label for="execution_time"></label>
-        Tempo de execução:
-        <input type="time" name="execution_time" id="execution_time"/>
+        Tempo de execução em minutos:
+        <input type="number" name="execution_time" id="execution_time"/>
     </div>
     <textarea name="comment" id="comment" placeholder="Comente sobre a execução da atividade"></textarea><br/>
     <div class="input-container">
