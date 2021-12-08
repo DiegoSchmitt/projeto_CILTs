@@ -1,6 +1,4 @@
 <?php
-    include 'cards.class.php';
-
 function timeExpected($x){
     $card = new Cards();
     $list = $x;
@@ -59,3 +57,14 @@ function timeExpectedMonthly(){
 function totalTimeExpected($y, $m){
     return timeExpectedDayly($y, $m) + timeExpectedWeekly($y, $m) + timeExpectedFortnightly() + timeExpectedMonthly();
 }
+
+function realTime($m){
+    $execute  = new Execute();
+    $list = $execute->getMonth($m);
+    $time = 0;
+    foreach($list as $item){
+        $time += $item['execution_time'];
+    }
+    
+    return $time;
+}  

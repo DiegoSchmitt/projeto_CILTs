@@ -33,4 +33,27 @@ class Execute{
         }
     }
 
+    public function getAll(){
+        $sql = "SELECT * FROM execute";
+        $sql = $this->pdo->query($sql);
+        if($sql -> rowCount() > 0){
+            return $sql->fetchAll();
+        }
+        else{
+            return array();
+        }
+    }
+
+    public function getMonth($month){
+        $sql = "SELECT * FROM execute WHERE MONTH(execution_date) = :month";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":month", $month);
+        $sql->execute();
+        if($sql->rowCount() > 0){
+            return $sql->fetchAll();
+        } else{
+            return array();
+        }
+    }
+
 }
