@@ -1,3 +1,4 @@
+<?php     require 'verifySession.php'; ?>
 <body>
     <input type="checkbox" id="check-menu">
     <header>
@@ -12,13 +13,13 @@
         </div>
 
         <div class="right">
-            <a href="index.php" class="sair_btn">Sair</a>
+            <a href="exit.php" class="sair_btn">Sair</a>
         </div>
     </header>
     <nav>
         <div class="menu">
             <center>
-                <img src="foto.jpeg" class="image" alt="">
+                <img src="assets/img/<?php echo 'user'.$_SESSION['file']; ?>" class="image" alt="">
                 <h2><?php echo $_SESSION['name']; ?></h2>
             </center>
             <a href="formUsers.php"><ion-icon name="person-add"></ion-icon>Adiconar Novo Usuário</a>
@@ -154,7 +155,7 @@
                 </li>
             </ul>
         </div>
-            <a href="index.php"><ion-icon name="close-circle"></ion-icon>Sair</a>
+            <a href="exit.php"><ion-icon name="close-circle"></ion-icon>Sair</a>
         </div>
     </nav>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

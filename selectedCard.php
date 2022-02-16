@@ -1,6 +1,7 @@
 <?php
     require 'pages/header.php';
     include 'cards.class.php';
+    require 'verifySession.php';
 
     $card = new Cards();
     if(!empty($_POST['type_card'])){

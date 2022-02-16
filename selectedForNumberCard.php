@@ -2,6 +2,7 @@
     require 'pages/header.php';
     include 'cards.class.php';
     include 'users.class.php';
+    require 'verifySession.php';
 
     $user = new Users();
     $card = new Cards();

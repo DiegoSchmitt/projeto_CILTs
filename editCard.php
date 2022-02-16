@@ -1,6 +1,8 @@
 <?php
    require 'pages/header.php';
    require 'cards.class.php';
+   require 'verifySession.php';
+   
    $card = new Cards;
    $info = $card->getNumberCard($_POST['name-card']); 
    $type_card = $info['type_card'];
@@ -49,7 +51,7 @@
     <h3>Alterar dados do CILT</h3><br>
     Seleciona o tipo da rotina:
     <select name="type_card"> <br/>
-        <option><?php echo $type_card  ?></option>
+        <option><?php echo $type_card;  ?></option>
         <option value='1'>Limpeza</option>
         <option value='2'>Inspeção</option>
         <option value='3'>Lubrificação</option>
@@ -69,8 +71,8 @@
     <textarea name="description" id="description"><?php echo $info['description'];?></textarea><br/>
     <div class="input-container">
         <label for="time_expected"></label>
-        Digite o tempo esperado para execução da atividade:
-        <input type="time" name="time_expected" id="time_expected" value="<?php echo $info['time_expected'];?>"/><br/>
+        Digite o tempo esperado para execução da atividade em minutos:
+        <input type="number" name="time_expected" id="time_expected" value="<?php echo $info['time_expected'];?>"/><br/>
     </div>
     Selecione a frequência da execução das atividades:
     <select name="frequency"> <br/>

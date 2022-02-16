@@ -4,6 +4,8 @@
     include 'users.class.php';
     include 'execute.class.php';
     require "timeExpected.php";
+    require 'verifySession.php';
+
     $user = new Users();
     $card = new Cards();
     $list = $card->getAll();

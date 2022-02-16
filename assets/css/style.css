@@ -423,7 +423,6 @@ nav ion-icon{
     height: 700px;
     width: 100%;
     align-items: center;
-    z-index: 1;
 }
 .chart1{
     margin-right: 50px;

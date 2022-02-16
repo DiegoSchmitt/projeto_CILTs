@@ -1,5 +1,6 @@
 <?php
     require 'pages/header.php';
+    require 'users.class.php';
 ?>
 <div class="container">
 <form method="post" class="form">
@@ -26,31 +27,30 @@
 </div>
 
 <?php
-if(isset($_POST['email']) && !empty($_POST['email'])){
+$user = new Users;
+if(isset($_POST['email']) && !empty($_POST['email']) && isset($_POST['password']) && !empty($_POST['password']) && isset($_POST['new_password']) && !empty($_POST['new_password'])){
     $email = addslashes($_POST['email']);
-    $password = md5(addslashes($_POST['password']));
-    $new_password = md5(addslashes($_POST['new_password']));
-    $confirm_password =  md5(addslashes($_POST['confirm_password']));
+    $password = addslashes($_POST['password']);
+    $new_password = addslashes($_POST['new_password']);
+    $confirm_password =  addslashes($_POST['confirm_password']);
+    $data = $user->getEmail($email);
+    $hash = $data['password'];
 
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
-    $sql = $pdo->query($sql);
-        if($sql->rowCount() > 0){
-            $data = $sql->fetch();
-            if($new_password === $confirm_password){
-                $sql = $pdo->prepare("UPDATE users SET password = :new_password WHERE id = :id");
-                $sql->bindValue(':new_password', $new_password);
-                $sql->bindValue(':id', $data['id']);
-                $sql->execute();
+    if(password_verify($password, $hash)){
+        $_SESSION['id'] = $data['id'];
+    }
+    else{
+        echo "<script>alert('Email e/ou senha incorreto!')</script>";
+    }
 
-                echo "<script>alert('Senha alterada com sucesso!')</script>";
-            }
-            else{
-                echo "<script>alert('Nova senha e confimação devem ser iguais!')</script>";
-            }
-        }else{
-            echo "<script>alert('Email e/ou senha incorreto!')</script>";
-        }
+    if($confirm_password == $new_password){
+        $new_password = password_hash($new_password, PASSWORD_DEFAULT);
+        $user->alterPassword($new_password, $_SESSION['id']);
+        echo "<script>alert('Senha alterada com sucesso!')</script>";
+    }
+    else{
+        echo "<script>alert('Nova senha e confimação devem ser iguais!')</script>";
+    }
 }
-
 require 'pages/footer.php';
 ?>

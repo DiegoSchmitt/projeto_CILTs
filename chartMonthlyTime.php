@@ -1,7 +1,8 @@
 <?php
+  require 'verifySession.php';
   $months  = array("Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro");
   $month    = date("m");
-  $month1   = $months[date("m",mktime(0,0,0,$month-1,0,0))*1];
+  //$month1   = $months[date("m",mktime(0,0,0,$month-1,0,0))*1];
   $month2   = $months[date("m",mktime(0,0,0,$month-2,0,0))*1];
   $month    = $months[$month-1];
 ?>

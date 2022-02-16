@@ -2,6 +2,7 @@
     require "pages\header.php";
     include "cards.class.php";
     include "execute.class.php";
+    require 'verifySession.php';
     $card = new Cards();
     $execute = new Execute();
     $list = $card->getAll();

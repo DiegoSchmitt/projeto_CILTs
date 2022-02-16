@@ -1,57 +1,10 @@
-<?php
-    require 'pages/header.php';
-    include 'users.class.php';
-    $user = new Users();
-    if(isset($_POST['email']) && !empty($_POST['email'])){
-        $name = addslashes($_POST['name']);
-        $email = addslashes($_POST['email']);
-        $password = md5(addslashes($_POST['password']));
-        $type = addslashes($_POST['type']);
-        if($user->existEmail($email)==false){
-            $user->add($name, $email, $password, $type);
-            ?>
-             <div class="container">
-                 <div class="sucess">
-                    <div class="msg">
-                        <?php
-                            echo"Usuário cadastrado com sucesso!<br/> Deseja cadastrar outro usuário?";
-                        ?>
-                    </div>
-                <a href="formUsers.php">
-                <div class="btn-sim" name="btn-sim">
-                    Sim
-                </div>
-                </a>
-
-                <a href="admin.php">
-                <div class="btn-nao" name="btn-nao">
-                    Não
-                </div>
-                </a>
-            </div>
-        </div>
-        <?php
-        }
-        else{
-            ?>
-             <div class="container">
-                 <div class="danger">
-                    <div class="msg">
-                        <?php
-                            echo"Já existe um usuário cadastrado com esse e-mail!";
-                        ?>
-                    </div>
-                <div class="close">
-                    <a href="formUsers.php">x</a>
-                </div>
-            </div>
-        </div>
-        <?php
-        }
-    }
+<?php 
+    require "pages/header.php"; 
+    require 'verifySession.php';
 ?>
+
 <div class="container">
-<form method = "POST" class="form">
+<form method ="POST" class="form" enctype="multipart/form-data" action="receiverUser.php">
     <h3>Cadastrar Novo Usuário</h3>
     <div class="input-container">
         <label for="name"><i class="fas fa-user"></i></label>
@@ -71,6 +24,7 @@
         <option value="0">Usuário</option>
         <option value="1">Administrador</option>
     </select> <br/>
+    <input type="file" name="file" value="default.png"/><br/><br/>
     <input type="submit" value="Cadastrar"/><br/><br/>
     <a href="admin.php">Voltar</a>
 </form>

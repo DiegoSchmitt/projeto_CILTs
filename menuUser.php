@@ -1,3 +1,4 @@
+<?php     require 'verifySession.php'; ?>
 <body>
     <input type="checkbox" id="check-menu">
     <header>
@@ -12,7 +13,7 @@
         </div>
 
         <div class="right">
-            <a href="index.php" class="sair_btn">Sair</a>
+            <a href="exit.php" class="sair_btn">Sair</a>
         </div>
     </header>
     <nav>

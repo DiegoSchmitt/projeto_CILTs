@@ -1,5 +1,6 @@
 <?php
    require 'pages/header.php';
+   require 'verifySession.php';
 ?>
 <div class="container">
 <form method = "POST" enctype="multipart/form-data" action='receiverCard.php' class='form'>
