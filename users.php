@@ -1,10 +1,10 @@
 <?php
     require 'pages/header.php';
-    include 'cards.class.php';
-    include 'users.class.php';
-    include 'execute.class.php';
+    include 'class/cards.class.php';
+    include 'class/users.class.php';
+    include 'class/execute.class.php';
     require "timeExpected.php";
-    require 'verifySession.php';
+    require 'config/verifySession.php';
 
     $user = new Users();
     $card = new Cards();
@@ -16,18 +16,18 @@
 ?>
 <div class="menu-admin">
     <?php
-        require 'menuUser.php';
+        require 'pages/menuUser.php';
     ?>
 </div>
 <div class="chart">
     <div class="chart1">
         <?php
-            require "chartStatus.php";
+            require "grafics/chartStatus.php";
         ?>
     </div>
     <div class="chart2">
         <?php
-            require "chartMonthlyTime.php";
+            require "grafics/chartMonthlyTime.php";
         ?>
     </div>
 </div>

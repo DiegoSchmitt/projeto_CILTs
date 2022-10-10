@@ -6,7 +6,7 @@ class Cards{
     }
     public function add($type_card, $number_card, $title, $description, $time_expected, $img, $frequency, $status, $date){
         if($this->existNumberCard($number_card)==false){
-            $sql = "INSERT INTO cards (type_card, number_card, title, description, time_expected, file, frequency, status, date) 
+            $sql = "INSERT INTO cards (type_card, number_card, title, description, time_expected, img, frequency, status, date) 
             VALUES (:type_card, :number_card, :title, :description, :time_expected, :img, :frequency, :status, :date)";
             $sql=$this->pdo->prepare($sql);
             $sql->bindValue(':type_card', $type_card);
@@ -27,7 +27,7 @@ class Cards{
 
     public function edit($type_card, $number_card, $title, $description, $time_expected, $img, $frequency, $date){
                 $sql = "UPDATE cards SET type_card = :type_card, title = :title, description = :description, 
-                time_expected = :time_expected, file = :img, frequency = :frequency, date= :date WHERE number_card = :number_card ";
+                time_expected = :time_expected, img = :img, frequency = :frequency, date= :date WHERE number_card = :number_card ";
                 $sql = $this->pdo->prepare($sql);
                 $sql->bindValue(":type_card", $type_card);
                 $sql->bindValue(":title", $title);

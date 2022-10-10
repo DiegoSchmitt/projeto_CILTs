@@ -20,10 +20,10 @@ class Execute{
             return false;
         }
     }
-    private function existNumberCilt($number_cilt){
-        $sql = "SELECT * FROM cards WHERE number_cilt = :number_cilt";
+    private function existNumberCilt($number_card){
+        $sql = "SELECT * FROM cards WHERE number_card = :number_card";
         $sql = $this->pdo->prepare($sql);
-        $sql->bindValue(":number_cilt", $number_cilt);
+        $sql->bindValue(":number_card", $number_card);
         $sql->execute();
 
         if($sql->rowCount() > 0){

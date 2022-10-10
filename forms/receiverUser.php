@@ -1,7 +1,7 @@
 <?php
-    require 'pages/header.php';
-    include 'users.class.php';
-    require 'verifySession.php';
+    require '../pages/header.php';
+    include '../class/users.class.php';
+    require '../config/verifySession.php';
     $user = new Users();
     if(isset($_POST['email']) && !empty($_POST['email'])){
         $name = addslashes($_POST['name']);
@@ -29,7 +29,7 @@
                             </div>
                             </a>
 
-                            <a href="admin.php">
+                            <a href="../admin.php">
                             <div class="btn-nao" name="btn-nao">
                                 Não
                             </div>
@@ -97,50 +97,14 @@
                     exit;
                 }
 
-                if($extension == 'jpeg' || $extension == 'jpg'){
-                    $new_height = 200;
-                    
-                    $temporary_image = imagecreatefromjpeg($_FILES['file']['tmp_name']);
-                    
-                    $original_width = imagesx($temporary_image);
-                    
-                    $original_height = imagesy($temporary_image);
-        
-                    $new_width = ($original_width * $new_height)/$original_height;
-        
-                    $resized_image = imagecreatetruecolor($new_width, $new_height);
-        
-                    imagecopyresampled($resized_image, $temporary_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-                    
-                    $filename = md5(time().rand(0,99)).'.jpeg';
-                    
-                    imagejpeg($resized_image, 'assets\img\user'.$filename);
-        
-                }
-        
-                if($extension == 'png' && $file['error'] != 4){
-                    $new_height = 200;
-                    
-                    $temporary_image = imagecreatefrompng($_FILES['file']['tmp_name']);
-                    
-                    $original_width = imagesx($temporary_image);
-                    
-                    $original_height = imagesy($temporary_image);
-        
-                    $new_width = ($original_width * $new_height)/$original_height;
-        
-                    $resized_image = imagecreatetruecolor($new_width, $new_height);
-        
-                    imagecopyresampled($resized_image, $temporary_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-                    
-                    $filename = md5(time().rand(0,99)).'.png';
-                    
-                    imagepng($resized_image, 'assets\img\user'.$filename);
-        
-                }
+                require "../extensionJPEG.php";
+                require "../extensionPNG.php";
+
+                $user->add($name, $email, $password, $type, $filename);
+
+                
             }
 
-            $user->add($name, $email, $password, $type, $file);
             ?>
              <div class="container">
                  <div class="sucess">

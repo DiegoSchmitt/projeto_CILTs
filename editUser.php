@@ -1,7 +1,7 @@
 <?php
     require "pages/header.php";
-    require "users.class.php";
-    require 'verifySession.php';
+    require "class/users.class.php";
+    require 'config/verifySession.php';
     $user = new Users;
     $info = $user->getId($_POST['name-user']);
     if($info['type'] == 0){
@@ -11,7 +11,7 @@
     }
 
 ?>
-
+<link rel="stylesheet" href="assets/css/style.css">
 <div class="container">
 <form method = "POST" enctype="multipart/form-data" class="form" action="changeUser.php">
     <h3>Alterar Dados</h3>
@@ -33,8 +33,9 @@
 
     Alterar Foto: <br/>
     <input type="file" name="file"/><br/><br/>
-    <input  type="hidden" name="current_file" value="<?php echo $info['file']; ?>">
+    <input  type="text" name="current_file" value="<?php echo $info['file']; ?>">
     <input type="submit" value="Atualizar"/><br/><br/>
     <a href="admin.php">Voltar</a>
+
 </form>
 </div>

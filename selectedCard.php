@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="assets/css/style.css">
 <?php
     require 'pages/header.php';
-    include 'cards.class.php';
-    require 'verifySession.php';
+    include 'class/cards.class.php';
+    require 'config/verifySession.php';
 
     $card = new Cards();
     if(!empty($_POST['type_card'])){
@@ -87,7 +88,7 @@
                 <div class="type">Tipo:<?php echo $type_card;?></div>
             </div>
         </div>
-        <div class="img"><img src="assets/img/<?php echo "cards".$item['file'];?>"/></div>
+        <div class="img"><img src="assets/img/<?php echo "user".$item['img'];?>"/></div>
         <div class="description">Descrição:<?php echo $item['description'];?></div>
         <div class="status-date">
             <div class="status">Status:<?php echo $status;?></div>

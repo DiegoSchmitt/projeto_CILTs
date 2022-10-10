@@ -1,8 +1,8 @@
 <?php
-    require "pages\header.php";
-    include "cards.class.php";
-    include "execute.class.php";
-    require 'verifySession.php';
+    require "../pages/header.php";
+    include "../class/cards.class.php";
+    include "../class/execute.class.php";
+    require '../config/verifySession.php';
     $card = new Cards();
     $execute = new Execute();
     $list = $card->getAll();
@@ -17,7 +17,7 @@
         $card->executeCard($number_card, $execution_date, $execution_time, $comment, $name);
         $card->alterStatus($execution_date, $frequency, $number_card);
         $execute->add($name, $execution_date, $execution_time, $number_card);
-        ?>
+    ?>
         <div class="container">
                 <div class="sucess">
                     <div class="msg">
@@ -32,7 +32,7 @@
                     </div>
                     </a>
 
-                    <a href="users.php">
+                    <a href="../users.php">
                     <div class="btn-nao" name="btn-nao">
                         Não
                     </div>

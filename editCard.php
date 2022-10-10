@@ -1,7 +1,7 @@
 <?php
    require 'pages/header.php';
-   require 'cards.class.php';
-   require 'verifySession.php';
+   require 'class/cards.class.php';
+   require 'config/verifySession.php';
    
    $card = new Cards;
    $info = $card->getNumberCard($_POST['name-card']); 
@@ -46,6 +46,7 @@
            break;
        }   
 ?>
+<link rel="stylesheet" href="assets/css/style.css">
 <div class="container">
 <form method = "POST" enctype="multipart/form-data" action='changeCard.php' class='form'>
     <h3>Alterar dados do CILT</h3><br>
@@ -93,7 +94,7 @@
     </div>
     Alterar Foto: <br/>
     <input type="file" name="file"/><br/><br/>
-    <input  type="hidden" name="current_file" value="<?php echo $info['file']; ?>">
+    <input  type="text" name="current_file" value="<?php echo $info['img']; ?>">
     <input type="submit" value="Alterar"/><br/><br/>
     <a href="admin.php">Voltar</a>
 </form>

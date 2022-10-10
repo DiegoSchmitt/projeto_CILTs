@@ -1,6 +1,6 @@
 <?php
-   require 'pages/header.php';
-   require 'verifySession.php';
+   require '../pages/header.php';
+   require '../config/verifySession.php';
 ?>
 <div class="container">
 <form method = "POST" enctype="multipart/form-data" action='receiverCard.php' class='form'>
@@ -51,5 +51,5 @@
 </form>
 </div>
 <?php
-    require 'pages/footer.php';
+    require '../pages/footer.php';
 ?>

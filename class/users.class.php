@@ -88,4 +88,12 @@ class Users{
         $sql->bindValue(':id', $id);
         $sql->execute();
     }
+
+    public function del($id){
+        $sql = "DELETE FROM users WHERE id = :id";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(':id', $id);
+        $sql->execute();
+    }
+
 }

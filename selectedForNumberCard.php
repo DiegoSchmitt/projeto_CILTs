@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="assets/css/style.css">
 <?php
     require 'pages/header.php';
-    include 'cards.class.php';
-    include 'users.class.php';
-    require 'verifySession.php';
+    include 'class/cards.class.php';
+    include 'class/users.class.php';
+    require 'config/verifySession.php';
 
     $user = new Users();
     $card = new Cards();
@@ -79,7 +80,7 @@
                 <div class="type">Tipo:<?php echo $type_card;?></div>
             </div>
         </div>
-        <div class="img"><img src="assets/img/<?php echo "cards".$info['file'];?>"/></div>
+        <div class="img"><img src="assets/img/<?php echo "user".$info['img'];?>"/></div>
         <div class="description">Descrição:<?php echo $info['description'];?></div>
         <div class="status-date">
             <div class="status">Status:<?php echo $status;?></div>

@@ -1,4 +1,4 @@
-<?php     require 'verifySession.php'; ?>
+<?php     require 'config/verifySession.php'; ?>
 <body>
     <input type="checkbox" id="check-menu">
     <header>
@@ -19,11 +19,11 @@
     <nav>
         <div class="menu">
             <center>
-                <img src="assets/img/<?php echo 'user'.$_SESSION['file']; ?>" class="image" alt="">
+                <img src="../assets/img/<?='user'.$_SESSION['file']; ?>" class="image" alt="">
                 <h2><?php echo $_SESSION['name']; ?></h2>
             </center>
-            <a href="formUsers.php"><ion-icon name="person-add"></ion-icon>Adiconar Novo Usuário</a>
-            <a href="formCards.php"><ion-icon name="card"></ion-icon>Adiconar Novo CILT</a>
+            <a href="forms/formUsers.php"><ion-icon name="person-add"></ion-icon>Adiconar Novo Usuário</a>
+            <a href="forms/formCards.php"><ion-icon name="card"></ion-icon>Adiconar Novo CILT</a>
 
 
         <div class="sub-menu-user">
@@ -41,13 +41,43 @@
                                         <option></option>
                                         <?php foreach ($usersList as $item): ?>
                                         <option value="<?php echo $item["id"]?> ">
-                                        <?php
-                                            echo $item["name"]; 
-                                        ?>
+                                            <?php
+                                                echo $item["name"]; 
+                                            ?>
                                         </option>
                                         <?php endforeach; ?>
                                     </select>
                                     <input type="submit" value="Abrir">
+                                </form>                                
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-user">
+            <input type="checkbox" id="del-user">
+            <label for="del-user"><ion-icon name="person"></ion-icon>Excluir Usuário</label>
+            <ul id="menu-user"> 
+                <li>
+                    <div class="sub-menu">
+                        <input type="checkbox" id="user-del">
+                        <label for="user-del">Filtrar por Nome</label>
+                        <ul>
+                            <li>
+                                <form method="post" action="delUser.php" class="form-menu">
+                                    <select name="name-user">
+                                        <option></option>
+                                        <?php foreach ($usersList as $item): ?>
+                                        <option value="<?php echo $item["id"]?> ">
+                                            <?php
+                                                echo $item["name"]; 
+                                            ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <input type="submit" value="Excluir">
                                 </form>                                
                             </li>
                         </ul>

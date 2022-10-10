@@ -1,6 +1,6 @@
 <?php
-    require 'pages/header.php';
-    require 'users.class.php';
+    require '../pages/header.php';
+    require '../class/users.class.php';
 ?>
 <div class="container">
 <form method="post" class="form">

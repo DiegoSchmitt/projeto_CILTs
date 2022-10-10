@@ -1,6 +1,6 @@
 <?php
 require 'pages/header.php';
-include 'users.class.php';
+include 'class/users.class.php';
 
 $user = new Users;
 if($_POST['email'] == '' || $_POST['password'] == ''){

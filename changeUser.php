@@ -1,7 +1,8 @@
+<link rel="stylesheet" href="assets/css/style.css">
 <?php  
     require "pages/header.php";
-    require "users.class.php";
-    require 'verifySession.php';
+    require "class/users.class.php";
+    require 'config/verifySession.php';
     $user = new Users;
 
 
@@ -10,30 +11,55 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
     $email = addslashes($_POST['email']);
     $type = addslashes($_POST['type']);
     $id = addslashes($_POST['id']);
-    if(!isset($_FILES['file'])){
-        $file = $_POST['current_file'];
-    }   
-        else{
+    
+    if($user->existEmail($email)==false){
+        if(isset($_FILES['file']) && !empty($_FILES['file'])){
             $file = $_FILES['file'];
+            if($file['error'] == 4){
+                $user->add($name, $email, $password, $type, $file = 'default.jpg');
+                ?>
+                  <div class="container">
+                    <div class="sucess">
+                        <div class="msg">
+                            <?php
+                                echo"Usuário cadastrado com sucesso!<br/> Deseja cadastrar outro usuário?";
+                            ?>
+                        </div>
+                        <a href="formUsers.php">
+                        <div class="btn-sim" name="btn-sim">
+                            Sim
+                        </div>
+                        </a>
 
-            if($file['error']){
-            ?>
-            <div class="container">
-                <div class="danger">
-                    <div class="msg">
-                        <?php
-                            echo"Falha ao enviar, tente novamente!";
-                        ?>
-                    </div>
-                    <div class="close">
-                        <a href="formCards.php">x</a>
+                        <a href="../admin.php">
+                        <div class="btn-nao" name="btn-nao">
+                            Não
+                        </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <?php
-            exit;
+                <?php
+                exit;
             }
-            if($file['size'] < 2097152){
+            if($file['error']){
+                ?>
+                <div class="container">
+                    <div class="danger">
+                        <div class="msg">
+                            <?php
+                                echo"Falha ao enviar, tente novamente!";
+                            ?>
+                        </div>
+                        <div class="close">
+                            <a href="formUsers.php">x</a>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                exit;
+            }
+
+            if($file['size'] < 20097152){
                 $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
             }
             
@@ -47,7 +73,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
                         ?>
                     </div>
                     <div class="close">
-                        <a href="formCards.php">x</a>
+                        <a href="formUsers.php">x</a>
                     </div>
                 </div>
             </div>
@@ -65,7 +91,7 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
                                 ?>
                             </div>
                             <div class="close">
-                                <a href="formCards.php">x</a>
+                                <a href="formUsers.php">x</a>
                             </div>
                         </div>
                     </div>
@@ -73,50 +99,14 @@ if(isset($_POST['email']) && !empty($_POST['email'])){
                 exit;
             }
 
-            if($extension == 'jpeg' || $extension == 'jpg'){
-                $new_height = 200;
-                
-                $temporary_image = imagecreatefromjpeg($_FILES['file']['tmp_name']);
-                
-                $original_width = imagesx($temporary_image);
-                
-                $original_height = imagesy($temporary_image);
-    
-                $new_width = ($original_width * $new_height)/$original_height;
-    
-                $resized_image = imagecreatetruecolor($new_width, $new_height);
-    
-                imagecopyresampled($resized_image, $temporary_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-                
-                $filename = md5(time().rand(0,99)).'.jpeg';
-                
-                imagejpeg($resized_image, 'assets\img\user'.$filename);
-                $user->edit($name, $email, $type, $filename, $id);
-    
-            }
-    
-            if($extension == 'png'){
-                $new_height = 200;
-                
-                $temporary_image = imagecreatefrompng($_FILES['file']['tmp_name']);
-                
-                $original_width = imagesx($temporary_image);
-                
-                $original_height = imagesy($temporary_image);
-    
-                $new_width = ($original_width * $new_height)/$original_height;
-    
-                $resized_image = imagecreatetruecolor($new_width, $new_height);
-    
-                imagecopyresampled($resized_image, $temporary_image, 0, 0, 0, 0, $new_width, $new_height, $original_width, $original_height);
-                
-                $filename = md5(time().rand(0,99)).'.png';
-                
-                imagepng($resized_image, 'assets\img\user'.$filename);
-                $user->edit($name, $email, $type, $filename, $id);
-            }
+            require "extensionJPEG.php";
+            require "extensionPNG.php";
+
+            $user->edit($name, $email, $type, $filename);
         }
+        
     }
+}
 ?>
     <div class="container">
         <div class="sucess">

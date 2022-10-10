@@ -1,4 +1,4 @@
-<?php require 'verifySession.php'; ?>
+<?php require 'config/verifySession.php'; ?>
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
